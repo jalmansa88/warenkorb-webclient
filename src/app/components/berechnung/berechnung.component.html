@@ -1,0 +1,88 @@
+<!-- <table *ngFor="let wk of berechnung" class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th scope="col">WK ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Qnty</th>
+            <th scope="col">Disccount</th>
+            <th scope="col">Final Price</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let product of wk.products">
+        <tr>
+            <th scope="row">{{wk.wkId}}</th>
+            <th scope="row">{{kunde.id}}</th>
+            <th scope="row">{{kunde.id}}</th>
+            <th scope="row">{{kunde.id}}</th>
+            <th scope="row">{{kunde.id}}</th>
+        </tr>
+    </tbody>
+    <tr>
+        <th scope="col">WK ID</th>
+        <th scope="col">Total Disccount</th>
+        <th scope="col">Final Price</th>
+    </tr>
+    <tbody>
+        <tr>
+            <th scope="row">{{wk.wkId}}</th>
+            <th scope="row">{{wk.totalDisccount}}</th>
+            <th scope="row">{{wk.total}}</th>
+        </tr>
+    </tbody>
+</table> -->
+
+
+<!-- ################# -->
+
+
+<div *ngFor="let awk of berechnung" class="card mt-3">
+    <div class="card-header">
+        <h3 class="text-xs-center"><strong>Berechnung for Wk ID {{awk.id}}</strong></h3>
+    </div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td><strong>Item Name</strong></td>
+                        <td class="text-xs-center"><strong>Item Price</strong></td>
+                        <td class="text-xs-center"><strong>Item Quantity</strong></td>
+                        <td class="text-xs-center"><strong>Disccount per Item</strong></td>
+                        <td class="text-xs-right"><strong>Total</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of awk.products">
+                        <td>{{product.name}}</td>
+                        <td class="text-xs-center">{{product.price | number: '1.2-2'}} €</td>
+                        <td class="text-xs-center">{{product.quantity}}</td>
+                        <td class="text-xs-center">{{product.price - product.finalPreis | number: '1.2-2'}}</td>
+                        <td class="text-xs-right">{{product.finalPreis * product.quantity | number: '1.2-2'}} €</td>
+                    </tr>
+                    <tr>
+                        <td class="highrow"></td>
+                        <td class="highrow"></td>
+                        <td class="highrow"></td>
+                        <td class="highrow text-xs-center"><strong>Subtotal</strong></td>
+                        <td class="highrow text-xs-right">{{awk.total + awk.totalDisccount | number: '1.2-2'}} €</td>
+                    </tr>
+                    <tr>
+                        <td class="emptyrow"></td>
+                        <td class="emptyrow"></td>
+                        <td class="emptyrow"></td>
+                        <td class="emptyrow text-xs-center"><strong>Disccount</strong></td>
+                        <td class="emptyrow text-xs-right">{{awk.totalDisccount | number: '1.2-2'}} €</td>
+                    </tr>
+                    <tr>
+                        <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                        <td class="emptyrow"></td>
+                        <td class="emptyrow"></td>
+                        <td class="emptyrow text-xs-center"><strong>Total</strong></td>
+                        <td class="emptyrow text-xs-right">{{awk.total | number: '1.2-2'}} €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
